@@ -1,4 +1,3 @@
-from secrets import choice
 import requests
 import json
 import time
@@ -15,7 +14,7 @@ def full_mor():
     today = datetime.date.today()
 
     #서코
-    seoulcomic = datetime.date(2022,5,14)
+    seoulcomic = datetime.date(2022,5,15)
     seoulcomic_d = seoulcomic - today
 
     #한강 API
@@ -105,7 +104,7 @@ def full_mor():
         
     pic_list = 'https://funzinnu.com/stream/cdn/dccon/%ED%95%91%ED%81%AC%EB%B9%88.gif', 'https://funzinnu.com/stream/cdn/dccon/y.jpg', 'https://puu.sh/Be2kM/454abf3902.png', 'https://funzinnu.com/stream/cdn/dccon/%EC%99%9C%EA%B3%A1%EC%95%B5%EB%AC%B4.gif', 'https://funzinnu.com/stream/cdn/dccon/%EC%8A%A4%ED%95%80%EC%95%B5%EB%AC%B4.gif', 'https://puu.sh/BhRU3/11b721faee.png', 'https://puu.sh/BvBBz/a0656c7f94.png', 'https://funzinnu.com/stream/cdn/dccon/%EB%A7%88%EC%B0%B8%EB%82%B4.png', 'https://funzinnu.com/stream/cdn/dccon/%EA%B4%80%EC%A7%9D%EC%A4%80%EB%B9%84.gif', 'https://funzinnu.com/stream/cdn/dccon/%EA%B4%80%EC%A7%9D%EB%8C%84%EC%8A%A4.gif', 'https://funzinnu.com/stream/cdn/dccon/%EA%B4%80%EC%A7%9D%EB%8C%84%EC%8A%A42.gif'
     emoji_list = ':cat:', ':fox:', ':koala:', ':pig:', ':frog:', ':chicken:', ':wolf:', ':duck:'
-    hello = '좋은 아침입니다.', '좋은 아침아침아침 입니다.', '.다니입침아 은좋', '좆은 아침입니다.', '좋은 아침이죠?','냐옹냐옹냐옹', '멍멍멍멍멍멍', '왈왈왈왈왈왈왈'
+    hello = '좋은 아침입니다.', '좋은 아침아침아침 입니다.', '.다니입침아 은좋','냐옹냐옹냐옹', '멍멍멍멍멍멍', '왈왈왈왈왈왈왈', '早上好', 'Good Morning', 'Bonjour', 'Guten Morgen'
 
     webhook = DiscordWebhook(url='https://discord.com/api/webhooks/958695648713113631/8FgFmdDVif_yAF-xuOu1FDmqXLQcR-HaODDMrLiKqZD59hWfBEXqLedZUy5jqUEdc984')
 
@@ -152,7 +151,7 @@ def full_end():
     today = datetime.date.today()
 
     #서코
-    seoulcomic = datetime.date(2022,5,14)
+    seoulcomic = datetime.date(2022,5,15)
     seoulcomic_d = seoulcomic - today
 
     #한강 API
@@ -242,7 +241,7 @@ def full_end():
         
     pic_list = 'https://funzinnu.com/stream/cdn/dccon/%ED%95%91%ED%81%AC%EB%B9%88.gif', 'https://funzinnu.com/stream/cdn/dccon/y.jpg', 'https://puu.sh/Be2kM/454abf3902.png', 'https://funzinnu.com/stream/cdn/dccon/%EC%99%9C%EA%B3%A1%EC%95%B5%EB%AC%B4.gif', 'https://funzinnu.com/stream/cdn/dccon/%EC%8A%A4%ED%95%80%EC%95%B5%EB%AC%B4.gif', 'https://puu.sh/BhRU3/11b721faee.png', 'https://puu.sh/BvBBz/a0656c7f94.png', 'https://funzinnu.com/stream/cdn/dccon/%EB%A7%88%EC%B0%B8%EB%82%B4.png', 'https://funzinnu.com/stream/cdn/dccon/%EA%B4%80%EC%A7%9D%EC%A4%80%EB%B9%84.gif', 'https://funzinnu.com/stream/cdn/dccon/%EA%B4%80%EC%A7%9D%EB%8C%84%EC%8A%A4.gif', 'https://funzinnu.com/stream/cdn/dccon/%EA%B4%80%EC%A7%9D%EB%8C%84%EC%8A%A42.gif'
     emoji_list = ':cat:', ':fox:', ':koala:', ':pig:', ':frog:', ':chicken:', ':wolf:', ':duck:'
-    hello = '저녁 결산', '저!녁! 결!산!', '!!!!!!!'
+    hello = '저녁 결산', '안녕~', '!!!!!!!'
 
     webhook = DiscordWebhook(url='https://discord.com/api/webhooks/958695648713113631/8FgFmdDVif_yAF-xuOu1FDmqXLQcR-HaODDMrLiKqZD59hWfBEXqLedZUy5jqUEdc984')
 
@@ -556,19 +555,9 @@ def short():
     
 
 #########################################
-schedule.every().day.at('08:00').do(full_mor)
-
-schedule.every().day.at('09:30').do(short)
-schedule.every().day.at('10:30').do(short)
-schedule.every().day.at('11:30').do(short)
+schedule.every().day.at('07:00').do(full_mor)
 
 schedule.every().day.at('12:30').do(full_lunch)
-
-schedule.every().day.at('13:30').do(short)
-schedule.every().day.at('15:30').do(short)
-schedule.every().day.at('17:30').do(short)
-schedule.every().day.at('19:30').do(short)
-schedule.every().day.at('21:30').do(short)
 
 schedule.every().day.at('23:00').do(full_end)
 
