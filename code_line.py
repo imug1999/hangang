@@ -14,7 +14,7 @@ def full_mor():
     today = datetime.date.today()
 
     #서코
-    seoulcomic = datetime.date(2022,5,15)
+    seoulcomic = datetime.date(2022,7,23)
     seoulcomic_d = seoulcomic - today
 
     #한강 API
@@ -151,7 +151,7 @@ def full_end():
     today = datetime.date.today()
 
     #서코
-    seoulcomic = datetime.date(2022,5,15)
+    seoulcomic = datetime.date(2022,7,23)
     seoulcomic_d = seoulcomic - today
 
     #한강 API
@@ -288,7 +288,7 @@ def full_lunch():
     today = datetime.date.today()
 
     #서코
-    seoulcomic = datetime.date(2022,5,14)
+    seoulcomic = datetime.date(2022,7,23)
     seoulcomic_d = seoulcomic - today
 
     #한강 API
@@ -425,7 +425,7 @@ def short():
     today = datetime.date.today()
 
     #서코
-    seoulcomic = datetime.date(2022,5,14)
+    seoulcomic = datetime.date(2022,7,23)
     seoulcomic_d = seoulcomic - today
 
     #한강 API
@@ -553,6 +553,18 @@ def short():
     # 웹훅 발사
     response = webhook.execute()
     
+def friday():  
+    wurl = 'https://discord.com/api/webhooks/958695648713113631/8FgFmdDVif_yAF-xuOu1FDmqXLQcR-HaODDMrLiKqZD59hWfBEXqLedZUy5jqUEdc984'
+
+    webhook = DiscordWebhook(url=wurl,
+                            )
+    embed = DiscordEmbed(title='Today is Friday in California')
+    webhook.add_embed(embed)
+    response = webhook.execute()
+
+    webhook = DiscordWebhook(url=wurl, content='https://shorturl.at/vDIQ3')
+    response = webhook.execute()
+    
 
 #########################################
 schedule.every().day.at('07:00').do(full_mor)
@@ -560,6 +572,8 @@ schedule.every().day.at('07:00').do(full_mor)
 schedule.every().day.at('12:30').do(full_lunch)
 
 schedule.every().day.at('23:00').do(full_end)
+
+schedule.every().friday.at('00:00').do(friday)
 
 
 
