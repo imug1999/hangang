@@ -573,7 +573,7 @@ schedule.every().day.at('12:30').do(full_lunch)
 
 schedule.every().day.at('23:00').do(full_end)
 
-schedule.every().friday.at('00:00').do(friday)
+schedule.every().friday.do(friday)
 
 
 
